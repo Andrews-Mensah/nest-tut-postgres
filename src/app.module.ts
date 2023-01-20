@@ -6,6 +6,8 @@ import { ProductModule } from './product/product.module';
 import { UserModule } from './user/user.module';
 import config from './config/keys';
 import { JwtModule } from '@nestjs/jwt/dist';
+import { MediaModule } from './media/media.module';
+import { MulterModule } from '@nestjs/platform-express/multer';
 
 
 @Module({
@@ -29,6 +31,10 @@ import { JwtModule } from '@nestjs/jwt/dist';
       // signOptions:{
       //   expiresIn: process.env.EXPIRES
       // }
+    }),
+    MediaModule,
+    MulterModule.register({
+      dest: './uploads'
     })
   ],
   controllers: [AppController],

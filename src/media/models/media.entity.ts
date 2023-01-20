@@ -1,28 +1,25 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity('products')
-export class ProductEntity{
+@Entity('media')
+export class MediaEntity{
 @PrimaryGeneratedColumn('uuid')
 id: string;
 
 @Column({default:''})
-name: string;
+originalname: string;
 
 @Column({default: ''})
-description: string;
+path: string;
     
 @Column()
-quantity: number;
+mimetype: string;
 
 @Column()
-price: number;
+filename: string;
 
 @Column({type: 'timestamp', default: ()=> 'CURRENT_TIMESTAMP'})
 createdAt: Date;
 
 @Column({type: 'timestamp', default: ()=> 'CURRENT_TIMESTAMP'})
 updatedAt: Date;
-
-@Column({default: ''})
-productImage: string;
 }
